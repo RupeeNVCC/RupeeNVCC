@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Character encoding and responsive viewport -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>32 Pearls Dental Care</title>
+
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- =============================================
+       HEADER & NAVIGATION
+       Fixed at top; stays visible while scrolling
+  ============================================== -->
+  <header class="site-header">
+    <div class="header-inner">
+
+      <!-- Logo / Practice Name -->
+      <a href="index.html" class="logo">
+        <img
+          src="images/32PearlsLogo_Transparent.png"
+          alt="32 Pearls Dental Care logo"
+          class="logo-img"
+        />
+      </a>
+
+      <!-- Hamburger toggle — visible on mobile only (CSS controls display) -->
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Primary navigation with five required links -->
+      <nav class="primary-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="team.html" class="nav-link">Meet the Team</a></li>
+          <li><a href="about.html" class="nav-link">About the Office</a></li>
+          <li><a href="forms.html" class="nav-link">Patient Forms</a></li>
+          <li><a href="schedule.html" class="nav-link cta-nav">Book and Appointment</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- =============================================
+       MAIN CONTENT
+  ============================================== -->
+  <main>
+
+    <!-- -------------------------------------------
+         HERO SECTION
+         Full-viewport section with background image,
+         dark overlay for contrast, and text overlay
+    ------------------------------------------- -->
+    <section class="hero" aria-label="Welcome to 32 Pearls Dental Care">
+
+      <!-- Background uses CSS; this overlay adds the dark tint for readability -->
+      <div class="hero-overlay"></div>
+
+      <!-- Centered hero text content -->
+      <div class="hero-content">
+        <p class="hero-eyebrow">Welcome to</p>
+        <h1 class="hero-title">32 Pearls<br><em>Dental Care</em></h1>
+        <p class="hero-subtitle">Where comfort meets exceptional care.</p>
+
+        <!-- Two call to action buttons -->
+        <div class="hero-actions">
+          <a href="schedule.html" class="btn btn-primary">Book an Appointment</a>
+          <a href="about.html" class="btn btn-ghost">Tour the Office</a>
+        </div>
+      </div>
+
+      <!-- Decorative wave shape at the bottom of the hero, Claude Ai helped with designing a wave to match an ocean theme. -->
+      <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/>
+        </svg>
+      </div>
+
+    </section>
+
+    <!-- -------------------------------------------
+         TAGLINE STRIP
+         A short centered statement — spa tone, calm
+    ------------------------------------------- -->
+    <section class="tagline-strip">
+      <div class="container">
+        <p class="tagline">Your smile is our masterpiece — crafted with <span class="accent">precision</span>, delivered with <span class="accent">warmth</span>.</p>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------
+         CARDS SECTION
+         Three service cards linking to inner pages
+    ------------------------------------------- -->
+    <section class="cards-section" aria-label="Our Services">
+      <div class="container">
+
+        <!-- Section label above the cards -->
+        <p class="section-label">Ready for your treatment?</p>
+
+        <!-- Card grid — flexbox on desktop, stacked on mobile -->
+        <div class="card-grid">
+
+          <!-- Card 1: Meet the Team -->
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <!-- People/team icon, Clause AI was used to create the icons in the cards. -->
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="18" cy="16" r="7" fill="#3EBFC2" opacity="0.2"/>
+                <circle cx="18" cy="16" r="7" stroke="#3EBFC2" stroke-width="2"/>
+                <path d="M4 40c0-7.7 6.3-14 14-14s14 6.3 14 14" stroke="#3EBFC2" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="36" cy="16" r="6" stroke="#B17F2B" stroke-width="2"/>
+                <path d="M44 40c0-6.6-4.5-12-10-13.5" stroke="#B17F2B" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h2 class="card-title">Meet the Team</h2>
+            <p class="card-text">Compassionate professionals dedicated to your comfort and care.</p>
+            <a href="team.html" class="card-link">Our Staff &rarr;</a>
+          </article>
+
+          <!-- Card 2: About the Office -->
+          <article class="card card--featured">
+            <div class="card-icon" aria-hidden="true">
+              <!-- Building/office icon, Claude AI was used to create the icons in the cards.-->
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="14" width="36" height="28" rx="2" fill="#ffffff" opacity="0.2" stroke="#ffffff" stroke-width="2"/>
+                <path d="M16 42V28h16v14" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                <rect x="20" y="6" width="8" height="8" rx="1" stroke="#ffffff" stroke-width="2"/>
+                <path d="M24 6V4" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h2 class="card-title">About the Office</h2>
+            <p class="card-text">A spa-like environment with cutting-edge dental technology.</p>
+            <a href="about.html" class="card-link card-link--light">Explore &rarr;</a>
+          </article>
+
+          <!-- Card 3: Patient Forms -->
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <!-- Clipboard/forms icon, Claude AI was used to create the icons in the cards. -->
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="8" width="28" height="34" rx="2" fill="#B17F2B" opacity="0.1" stroke="#B17F2B" stroke-width="2"/>
+                <path d="M18 8v-2h12v2" stroke="#B17F2B" stroke-width="2" stroke-linecap="round"/>
+                <path d="M16 22h16M16 29h10" stroke="#B17F2B" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h2 class="card-title">Patient Forms</h2>
+            <p class="card-text">Complete your paperwork online — before you even arrive.</p>
+            <a href="forms.html" class="card-link">Get Started &rarr;</a>
+          </article>
+
+        </div><!-- /card-grid -->
+      </div>
+    </section>
+
+    <!-- -------------------------------------------
+         APPOINTMENT BANNER
+         Full-width teal band encouraging booking
+    ------------------------------------------- -->
+    <section class="appt-banner" aria-label="Schedule an appointment">
+      <div class="container appt-inner">
+        <div class="appt-text">
+          <p class="appt-label">Ready to visit us?</p>
+          <h2 class="appt-heading">Your next great smile<br>starts here.</h2>
+        </div>
+        <a href="schedule.html" class="btn btn-bronze">Book an Appointment Now</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =============================================
+       FOOTER
+       Full-width; three columns on desktop
+  ============================================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+
+      <!-- Column 1: Brand -->
+      <div class="footer-brand">
+        <!-- NEW — smaller white friendly version in footer -->
+        <img
+          src="images/32PearlsLogo_Transparent.png"
+          alt="32 Pearls Dental Care"
+          class="footer-logo-img"
+        />
+        <p class="footer-tagline">Comfort. Precision. Care.</p>
+      </div>
+
+      <!-- Column 2: Quick links -->
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="team.html">Meet the Team</a></li>
+          <li><a href="about.html">About the Office</a></li>
+          <li><a href="schedule.html">Book an Appointment</a></li>
+          <li><a href="forms.html">Patient Forms</a></li>
+        </ul>
+      </nav>
+
+      <!-- Column 3: Contact info, Claude AI helped me with creating the icons for the footer. -->
+      <div class="footer-contact">
+        <p>📍 Stafford, Virginia</p>
+        <p>📞 (540)-659-2000</p>
+        <p>✉️ 32PearlsDentalCareVa@gmail.com</p>
+      </div>
+
+    </div>
+
+    <!-- Bottom copyright bar, I will replace my name with Dr. Kaur's name for the live website. -->
+    <div class="footer-bottom">
+      <p>&copy; 2026 Paramvir Tiwana 32 Pearls Dental Care. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+</body>
+</html>

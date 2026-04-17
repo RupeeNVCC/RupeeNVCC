@@ -1,0 +1,802 @@
+/* =============================================
+   32 PEARLS DENTAL CARE — STYLESHEET
+   Author: Paramvir Tiwana
+   Palette:
+     Teal:   #3EBFC2  (primary brand)
+     Bronze: #B17F2B  (accent)
+     White:  #ffffff  (background)
+     Dark:   #1a2530  (text)
+     Soft:   #f5f4f0  (light bg sections)
+     Claude AI Helped with improving my comments. 
+============================================= */
+
+
+/* =============================================
+  Add phosphor icons, 
+============================================= */
+
+/* =============================================
+   CSS CUSTOM PROPERTIES (VARIABLES)
+   Define once, reuse everywhere.
+   Change a variable here → updates whole site.
+============================================= */
+:root {
+  --teal:        #3EBFC2;
+  --teal-dark:   #2fa0a3;
+  --teal-light:  #d6f4f5;
+  --bronze:      #B17F2B;
+  --bronze-dark: #8f6420;
+  --white:       #ffffff;
+  --soft-bg:     #f7f9f9;
+  --dark:        #1a2530;
+  --mid:         #4a5a65;
+  --light-text:  #7a8e98;
+
+  /* Spacing scale */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  2rem;
+  --space-lg:  4rem;
+  --space-xl:  6rem;
+
+  /* Typography */
+  --font-body:    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* Sizing */
+  --max-width: 1160px;
+  --radius:    10px;
+  --radius-lg: 18px;
+}
+
+
+/* =============================================
+   RESET & BASE STYLES
+   Normalize browser defaults for consistency
+============================================= */
+
+/* Box-sizing: include padding/border in element dimensions */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Smooth scrolling when navigating to anchors */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base body styles */
+body {
+  font-family: var(--font-body);
+  color: var(--dark);
+  background-color: var(--white);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* Remove bullet points from all lists by default */
+ul {
+  list-style: none;
+}
+
+/* Remove default link decoration; inherit color */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Images are responsive by default */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Italic is used for style text */
+em {
+  font-style: italic;
+}
+
+
+/* =============================================
+   UTILITY: CONTAINER
+   Centers content with a max-width and padding
+============================================= */
+.container {
+  max-width: var(--max-width);
+  margin-inline: auto;      /* center horizontally */
+  padding-inline: var(--space-md); /* left/right breathing room */
+}
+
+
+/* =============================================
+   UTILITY: BUTTONS
+   Two styles: primary (white on teal) and ghost
+============================================= */
+
+/* Shared button base styles */
+.btn {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;          /* fully rounded pill shape */
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.15s ease;
+}
+
+/* Primary: solid teal fill */
+.btn-primary {
+  background-color: var(--teal);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background-color: var(--teal-dark);
+  transform: translateY(-2px); /* subtle lift on hover */
+}
+
+/* Ghost: transparent with white border (used on dark hero) */
+.btn-ghost {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.7);
+}
+.btn-ghost:hover {
+  background-color: rgba(255,255,255,0.12);
+  transform: translateY(-2px);
+}
+
+/* Bronze: solid bronze fill (used in appointment banner) */
+.btn-bronze {
+  background-color: var(--bronze);
+  color: var(--white);
+  font-size: 1rem;
+  padding: 1rem 2.5rem;
+}
+.btn-bronze:hover {
+  background-color: var(--bronze-dark);
+  transform: translateY(-2px);
+}
+
+
+/* =============================================
+   SITE HEADER & NAVIGATION
+   Fixed position so it stays at top on scroll
+============================================= */
+.site-header {
+  position: fixed;          /* stays visible while scrolling */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;             /* above all other content */
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px); /* frosted glass blur effect */
+  border-bottom: 1px solid rgba(62, 191, 194, 0.15);
+}
+
+/* Inner flex row: logo on left, nav on right */
+.header-inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: 1rem var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ---- LOGO ---- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+/* Logo image — sized to fit the header bar */
+.logo-img {
+  height: 150px;        /* controls how tall the logo appears */
+  width: auto;         /* keeps the original proportions */
+  display: block;
+}
+
+/* Italic part of logo text (Dental Care) */
+.logo-text em {
+  color: var(--teal);
+  font-weight: normal;
+}
+
+/* ---- DESKTOP NAV ---- */
+.primary-nav ul {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.nav-link {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.9rem;
+  color: var(--mid);
+  border-radius: 50px;
+  transition: color 0.2s, background 0.2s;
+  letter-spacing: 0.02em;
+}
+
+/* Hover and active states */
+.nav-link:hover,
+.nav-link.active {
+  color: var(--teal);
+  background-color: var(--teal-light);
+}
+
+/* "Patient Forms" nav item styled as a pill CTA */
+.nav-link.cta-nav {
+  background-color: var(--teal);
+  color: var(--white);
+}
+.nav-link.cta-nav:hover {
+  background-color: var(--teal-dark);
+}
+
+/* ---- HAMBURGER TOGGLE (mobile only) ---- */
+.nav-toggle {
+  display: none; /* hidden on desktop; shown via media query */
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* Each bar of the hamburger icon */
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--dark);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+/* =============================================
+   HERO SECTION
+   Full-viewport banner with image + text overlay
+============================================= */
+.hero {
+  position: relative;
+  min-height: 100vh;          /* fill entire viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-image: url(../images/Front_Desk.png)
+  
+}
+
+/* Semi-transparent dark overlay for text contrast */
+.hero-overlay {
+  position: absolute;
+  inset: 0;                    /* shorthand for top/right/bottom/left: 0 */
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 40, 45, 0.55) 0%,
+    rgba(10, 40, 45, 0.35) 60%,
+    rgba(10, 40, 45, 0.65) 100%
+  );
+}
+
+/* Hero text — sits above the overlay using z-index */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
+  padding: 2rem var(--space-md);
+  max-width: 700px;
+}
+
+/* Small label above the main title */
+.hero-eyebrow {
+  font-size: 2rem; /*Dr. G said the text was too small, so I made it larger and more accessible*/
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 0.75rem;
+}
+
+/* Main headline */
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 5.5rem); /* scales with screen width */
+  font-weight: bold;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+/* Italic portion of title */
+.hero-title em {
+  font-weight: normal;
+  color: rgba(255,255,255,0.88);
+}
+
+/* Subtitle sentence below the title */
+.hero-subtitle {
+  font-size: clamp(2rem, 2.5vw, 1.2rem);
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.04em;
+}
+
+/* CTA button row */
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap; /* stacks on very small screens */
+}
+
+/* Decorative wave that blends hero into white background */
+.hero-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  line-height: 0; /* removes any extra gap below SVG */
+}
+
+.hero-wave svg {
+  width: 100%;
+  height: 60px;
+}
+
+
+/* =============================================
+   TAGLINE STRIP
+   A short centered italic statement
+============================================= */
+.tagline-strip {
+  padding: var(--space-lg) 0;
+  background-color: var(--white);
+}
+
+.tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+  text-align: center;
+  color: var(--mid);
+  max-width: 700px;
+  margin-inline: auto;
+  line-height: 1.6;
+}
+
+/* Bronze accent words within the tagline */
+.tagline .accent {
+  color: var(--bronze);
+  font-style: italic;
+}
+
+
+/* =============================================
+   CARDS SECTION
+   Three equal cards in a horizontal grid
+============================================= */
+.cards-section {
+  padding: var(--space-lg) 0 var(--space-xl);
+  background-color: var(--soft-bg);
+}
+
+/* Small uppercase label above cards */
+.section-label {
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: var(--space-md);
+}
+
+/* Three-column grid on desktop */
+.card-grid {
+  display: flex;
+  gap: 1.75rem;
+  align-items: stretch; /* equal height cards */
+}
+
+/* Individual card */
+.card {
+  flex: 1;                    /* each card takes equal space */
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  border: 1px solid rgba(62,191,194,0.12);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Lift effect when hovering a card */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(62,191,194,0.18);
+}
+
+/* Featured (middle) card — teal background */
+.card--featured {
+  background: linear-gradient(145deg, var(--teal), var(--teal-dark));
+  color: var(--white);
+  border-color: transparent;
+}
+
+.card--featured .card-title,
+.card--featured .card-text {
+  color: var(--white);
+}
+
+/* Icon container at top of card */
+.card-icon {
+  width: 52px;
+  height: 52px;
+}
+
+.card-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Card heading */
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--dark);
+  line-height: 1.3;
+}
+
+/* Card description text */
+.card-text {
+  font-size: 0.95rem;
+  color: var(--mid);
+  line-height: 1.65;
+  flex: 1; /* pushes link to bottom */
+}
+
+/* "Learn more" style arrow link at bottom of card */
+.card-link {
+  font-size: 0.9rem;
+  color: var(--teal);
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  transition: color 0.2s, letter-spacing 0.2s;
+}
+
+/* Light version of card link for the featured (teal) card */
+.card-link--light {
+  color: rgba(255,255,255,0.9);
+}
+
+.card-link:hover {
+  letter-spacing: 0.07em; /* subtle spread on hover */
+  color: var(--bronze);
+}
+
+.card-link--light:hover {
+  color: var(--white);
+}
+
+
+/* =============================================
+   APPOINTMENT BANNER
+   Full-width teal section with bold CTA
+============================================= */
+.appt-banner {
+  background: linear-gradient(135deg, #0d6b6e, var(--teal));
+  padding: var(--space-lg) 0;
+  color: var(--white);
+}
+
+/* Flex row: text left, button right */
+.appt-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  flex-wrap: wrap; /* stacks on mobile */
+}
+
+.appt-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 0.5rem;
+}
+
+.appt-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  line-height: 1.2;
+}
+
+/* =============================================
+   SITE FOOTER
+   Full-width dark footer with three columns
+============================================= */
+.site-footer {
+  background-color: var(--dark);
+  color: rgba(255,255,255,0.75);
+}
+
+/* Three-column grid in footer body */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* unequal but balanced columns */
+  gap: var(--space-md);
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-lg);
+}
+
+/* Footer logo — slightly smaller, Transparent */
+.footer-logo-img {
+  height: 150px; 
+  width: auto;
+  border-radius: 20px;
+}
+
+/* Practice name in footer */
+.footer-logo-text {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.footer-logo-text em {
+  color: var(--teal);
+}
+
+/* Tagline under logo */
+.footer-tagline {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.1em;
+}
+
+/* Footer nav list — vertically stacked */
+.footer-nav ul {
+  display: flex;
+  flex-direction: column;
+   align-items: center;
+  gap: 0.6rem;
+}
+
+.footer-nav a {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.65);
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+  color: var(--teal);
+}
+
+/* Footer contact block */
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+}
+
+/* Bottom bar: copyright */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+  padding: 1.25rem var(--space-md);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.35);
+}
+
+
+/* =============================================
+   RESPONSIVE STYLES — TABLET & MOBILE
+   Breakpoint: 768px and below
+============================================= */
+@media (max-width: 768px) {
+
+  /* ---- NAVIGATION ---- */
+
+  /* Show the hamburger toggle button */
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* Hide nav links by default on mobile */
+  .primary-nav {
+    display: none;
+    position: absolute;
+    top: 100%;           /* drops below the header */
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    padding: 1rem var(--space-md) 1.5rem;
+    border-bottom: 1px solid rgba(62,191,194,0.2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
+
+  /* Show nav when .nav-open class is toggled by JS */
+  .primary-nav.nav-open {
+    display: block;
+  }
+
+  /* Stack nav links vertically */
+  .primary-nav ul {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.6rem 1rem;
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    min-height: 90vh;
+  }
+
+  /* ---- CARDS ---- */
+
+  /* Stack cards vertically on mobile */
+  .card-grid {
+    flex-direction: column;
+  }
+
+  /* ---- APPOINTMENT BANNER ---- */
+
+  /* Stack text and button on mobile */
+  .appt-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* ---- TRUST INDICATORS ---- */
+
+  /* Stack trust items vertically */
+  .trust-grid {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  /* Hide the vertical divider on mobile */
+  .trust-divider {
+    width: 60px;
+    height: 1px;
+  }
+
+  /* ---- FOOTER ---- */
+
+  /* Footer — stacked vertically and centered */
+  .footer-grid {
+  display: flex;
+  flex-direction: column;   /* stack columns on top of each other */
+  align-items: center;      /* center everything horizontally */
+  text-align: center;       /* center all text */
+  gap: var(--space-md);
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-lg);
+}
+
+  /* Center-align contact block on mobile */
+  .footer-contact {
+    text-align: center;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .footer-contact a:hover {
+  text-decoration: underline;
+  }
+}
+
+
+/* =============================================
+   RESPONSIVE STYLES — SMALL MOBILE
+   Breakpoint: 480px and below
+============================================= */
+@media (max-width: 480px) {
+
+  /* Tighten hero button layout */
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Full-width buttons on small phones */
+  .btn {
+    width: 100%;
+    text-align: center;
+    max-width: 280px;
+  }
+}
+
+
+
+  /* Dr G's example CSS for about page cards*/
+  .fp-a-grid{
+    
+    display:grid;
+    
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    
+    gap:32px;
+    align-items:center;
+    justify-items:center;
+    
+    max-width:1000px;
+    margin:0 auto;
+  }
+
+  .fp-a-grid img{
+    
+    width:100%;
+    border-radius:14px;
+    object-fit:cover;
+  }
+
+  .fp-a-text{
+    
+    max-width:320px;
+    font-size:.92rem;
+    line-height:1.7;
+    color:#444;
+    
+    text-align:left;
+  }
+
+  .fp-a-text p{
+    margin-bottom:16px;
+  }
+
+  .fp-a-btn{
+    
+    display:inline-block;
+    padding:10px 26px;
+    border-radius:8px;
+    
+    border:2px solid #34a853;
+    color:#34a853;
+    font-weight:600;
+    
+    font-size:.85rem;
+    text-decoration:none;
+    transition:all .2s;
+  }
+
+  .fp-a-btn:hover{
+    background:#34a853;
+    color:#fff;
+  }
+
+  .fp-a{
+    
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    padding:60px 40px;
+    
+    text-align:center;
+  }
+
+  .fp-a h2{
+    font-size:clamp(1.8rem,4vw,2.6rem);
+    color:#111;
+    font-weight:700;
+    margin-bottom:40px;
+  }
